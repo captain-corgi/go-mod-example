@@ -7,5 +7,6 @@ import (
 )
 
 func main() {
-	fmt.Println(greet.HelloHuman("Anh Le"))
+	myName := "Anh Le"
+	fmt.Println(greet.HelloHuman(myName))
 }

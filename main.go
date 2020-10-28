@@ -9,4 +9,5 @@ import (
 func main() {
 	myName := "Anh Le"
 	fmt.Println(greet.HelloHuman(myName))
+	fmt.Println(greet.HelloPredator(myName))
 }

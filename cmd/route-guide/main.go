@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/captain-corgi/grpc-go-example/api/routeguide"
+	pb "github.com/captain-corgi/grpc-go-example/api/routeguide"
 	"google.golang.org/grpc"
 )
 
@@ -22,12 +22,12 @@ func main() {
 	defer conn.Close()
 
 	// Register a client with server
-	basicClient := routeguide.NewRouteGuideClient(conn)
+	basicClient := pb.NewRouteGuideClient(conn)
 
 	// Call gRPC
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := basicClient.GetFeature(ctx, &routeguide.Point{Latitude: 1, Longitude: 1})
+	r, err := basicClient.GetFeature(ctx, &pb.Point{Latitude: 1, Longitude: 1})
 	if err != nil {
 		log.Fatalf("could not get feature: %v", err)
 	}
